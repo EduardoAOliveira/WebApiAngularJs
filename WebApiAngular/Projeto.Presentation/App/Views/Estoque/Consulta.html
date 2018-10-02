@@ -1,0 +1,37 @@
+﻿<h4>Consulta de Estoques</h4>
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+
+        <strong>{{mensagem}}</strong>
+
+        <table class="table table-bordered table-striped table-hover"
+               ng-init="consultar()">
+
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do Estoque</th>
+                    <th>Qtd de Produtos</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="e in estoques">
+                    <td>{{e.IdEstoque}}</td>
+                    <td>{{e.Nome}}</td>
+                    <td>{{e.QtdProdutos}}</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="3">Quantidade de registro(s): {{estoques.length}}</td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿<h5>Cadastro de Produtos</h5>
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+
+        <label>Nome do produto:</label>
+        <input type="text" class="form-control"
+               placeholder="Nome do produto"
+               ng-model="produto.Nome"/>
+        <ul>
+            <li ng-repeat="e in erros['viewModel.Nome']">
+                <span class="text-danger">{{e}}</span>
+            </li>
+        </ul>
+        <br/>
+
+        <label>Preço:</label>
+        <input type="text" class="form-control"
+               placeholder="Preço"
+               ng-model="produto.Preco"/>
+        <ul>
+            <li ng-repeat="e in erros['viewModel.Preco']">
+                <span class="text-danger">{{e}}</span>
+            </li>
+        </ul>
+        <br />
+
+        <label>Quantidade:</label>
+        <input type="text" class="form-control"
+               placeholder="Quantidade"
+               ng-model="produto.Quantidade"/>
+        <ul>
+            <li ng-repeat="e in erros['viewModel.Quantidade']">
+                <span class="text-danger">{{e}}</span>
+            </li>
+        </ul>
+        <br />
+
+        <label>Selecione o estoque:</label>
+        <select class="form-control" ng-init="consultarEstoques()"
+                ng-model="produto.IdEstoque">
+            <option value="">Selecione uma opção</option>
+
+            <option ng-repeat="e in estoques" value="{{e.IdEstoque}}">
+                {{e.Nome}} ({{e.QtdProdutos}})
+            </option>
+
+        </select>
+        <ul>
+            <li ng-repeat="e in erros['viewModel.IdEstoque']">
+                <span class="text-danger">{{e}}</span>
+            </li>
+        </ul>
+        <br />
+
+        <button class="btn btn-success" ng-click="cadastrar()">
+            Cadastrar Produto
+        </button>
+
+        <br />
+        <br />
+
+        <div class="alert alert-success" ng-show="mensagem">
+            {{mensagem}}
+        </div>
+
+    </div>
+</div>
